@@ -35,4 +35,9 @@ export class Container {
 
     return new target(...injections);
   }
+
+  public static clear(): void {
+    Container.dependencies.clear();
+    Container.instance = undefined as any;
+  }
 }
