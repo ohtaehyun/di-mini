@@ -1,6 +1,6 @@
 export class Container {
   private static instance: Container;
-  private static dependencies = new Map<string, any>();
+  private static dependencies = new Map<Function, any>();
 
   private constructor() {}
 
@@ -8,7 +8,7 @@ export class Container {
     return Container.instance ?? (Container.instance = new Container());
   }
 
-  public register(key: string, value: any): void {
+  public register<T>(key: Function, value: T): void {
     if (Container.dependencies.has(key)) {
       throw new Error(`Dependency with key ${key} is already registered.`);
     }
@@ -16,7 +16,7 @@ export class Container {
     Container.dependencies.set(key, value);
   }
 
-  public resolve<T>(key: string): T {
+  public resolve<T>(key: new (...args: any[]) => T): T {
     const target = Container.dependencies.get(key);
 
     if (!target) {

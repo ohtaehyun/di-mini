@@ -12,7 +12,7 @@ describe("Container", () => {
       }
     }
 
-    const instanceA = Container.getInstance().resolve("DependencyA");
+    const instanceA = Container.getInstance().resolve(DependencyA);
     expect(instanceA).toBeInstanceOf(DependencyA);
     expect(instanceA.sayHello()).toBe("Hello A");
   });
