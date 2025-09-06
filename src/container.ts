@@ -26,9 +26,9 @@ export class Container {
     const paramTypes: any[] = Reflect.getMetadata("design:paramtypes", target) || [];
 
     const injections = paramTypes.map((_: any, index: number) => {
-      const injectKey = Reflect.getMetadata(`inject:${index}`, target);
+      const injectKey = Reflect.getMetadata(`inject:${index}`, target) ?? _;
       if (!injectKey) {
-        throw new Error(`No injection metadata found for parameter at index ${index} of ${key}`);
+        throw new Error(`No injection metadata found for parameter ${injectKey}`);
       }
       return this.resolve(injectKey);
     });

@@ -14,7 +14,7 @@ export function Inject(key?: string): ParameterDecorator {
         ? Reflect.getMetadata("design:paramtypes", target)
         : Reflect.getMetadata("design:paramtypes", target, propertyKey);
 
-    const reflectKey = key ?? types?.[parameterIndex]?.name;
+    const reflectKey = key ?? types?.[parameterIndex];
     Reflect.defineMetadata(`inject:${parameterIndex}`, reflectKey, target);
   };
 }
