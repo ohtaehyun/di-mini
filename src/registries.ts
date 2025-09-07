@@ -19,4 +19,8 @@ export class ControllerRegistry {
 
     return controller;
   }
+
+  public static clear() {
+    this.controllers.clear();
+  }
 }
