@@ -1,4 +1,5 @@
 import { Container } from "./container.js";
+import { ControllerRegistry } from "./registries.js";
 
 export function Injectable(): ClassDecorator {
   return function (target: any) {
@@ -16,5 +17,12 @@ export function Inject(key?: string): ParameterDecorator {
 
     const reflectKey = key ?? types?.[parameterIndex];
     Reflect.defineMetadata(`inject:${parameterIndex}`, reflectKey, target);
+  };
+}
+
+export function Controller(path: string): ClassDecorator {
+  return function (target: any) {
+    Injectable()(target);
+    ControllerRegistry.register(path, target);
   };
 }
