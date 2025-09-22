@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import { Container } from "../src/container.js";
+import { Container } from "../src/container/index.js";
 import { describe, it, expect } from "vitest";
-import { Inject, Injectable } from "../src/decorators.js";
+import { Inject, Injectable } from "../src/decorators/index.js";
 
 @Injectable()
 class DependencyA {

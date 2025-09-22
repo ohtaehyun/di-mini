@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { ControllerRegistry } from "../src/registries.js";
+import { ControllerRegistry } from "../src/registries/index.js";
 
 class UserController {}
 class ProductController {}

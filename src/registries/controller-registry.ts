@@ -1,4 +1,4 @@
-import type { ClassConstructor } from "./types/class-constructor.type.js";
+import type { ClassConstructor } from "../types/index.js";
 
 export class ControllerRegistry {
   private static controllers: Map<string, ClassConstructor> = new Map();
