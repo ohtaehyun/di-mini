@@ -1,4 +1,4 @@
-import type { HttpMethod } from "../types/http-method.type.js";
+import type { HttpMethod } from "../types/index.js";
 import type { PathVO } from "./path.vo.js";
 
 export class Route {
