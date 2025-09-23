@@ -8,11 +8,17 @@ export class PathVO {
   private validate(path: string): string {
     if (path === '') return path;
 
-    const splited = path.split('/').filter(s => s.length);
+    const splited = path.split('/').filter((s) => s.length);
     if (splited.length < 1) throw new Error(`check path: ${path}`);
-    
+
     return '/' + splited.join('/');
   }
 
-  toString() {return this.value}
+  toString() {
+    return this.value;
+  }
+
+  combine(path: PathVO) {
+    return this.value + path.toString();
+  }
 }
