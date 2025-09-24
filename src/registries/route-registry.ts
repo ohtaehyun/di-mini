@@ -1,4 +1,4 @@
-import type { Route } from '../models/route.js';
+import { Route } from '../models/route.js';
 
 export class RouteRegistry {
   private static routeMap: Map<string, Route> = new Map();
@@ -13,5 +13,9 @@ export class RouteRegistry {
       throw new Error(`Route with identifier ${identifier} is not registered.`);
     }
     return route;
+  }
+
+  public static findRoute(method: string, path: string): Route | undefined {
+    return this.routeMap.get(Route.buildIdentifier(method, path));
   }
 }

@@ -16,4 +16,8 @@ export class Route {
   get identifier() {
     return `${this.method}:${this.fullPath}`;
   }
+
+  static buildIdentifier(method: string, fullPath: string) {
+    return `${method.toUpperCase()}:${fullPath}`;
+  }
 }
